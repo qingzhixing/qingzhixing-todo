@@ -15,8 +15,15 @@ export default defineComponent({
             keyword,
         }
     },
-    mounted(){
-        this.keyword=this.$route.query.keyword;
+    created() {
+        this.$watch(
+            ()=>this.$route.query,
+            (newQuery: { keyword: any; })=>{
+                this.keyword = newQuery.keyword;
+            }
+        );
+
+        this.keyword =this.$route.query.keyword;
     }
 })
 </script>

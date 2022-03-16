@@ -76,10 +76,11 @@ export default defineComponent({
     },
     methods:{
         DoSearch: function(){
-           this.$router.push({
-               path:"search",
-               query:{keyword:this.keyword}
-           });
+            // console.log(this.keyword);
+            this.$router.push({
+                path:"search",
+                query:{keyword:this.keyword}
+            });
         },
     }
 })
