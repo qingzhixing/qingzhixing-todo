@@ -95,18 +95,24 @@ export default defineComponent({
 <style lang="less" scoped>
 #summarize-page{
     border: 1px solid black;
-    padding: 10px;
-    height: 95%;
-    //display
+    height:100%;
+    position: relative;
+    left:10px;
 
-    div{
-        margin-top:10px;
-        margin-bottom:10px;
+    #user-info-display{
+    }
+
+    #search{
+    }
+
+    #todo-summarize{
     }
 
     #create{
+
         display:grid;
         grid-template-columns: repeat(2,1fr);
+        width: 100%;
         #create-list{
         }
         #create-list-group{
