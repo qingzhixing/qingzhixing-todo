@@ -67,10 +67,12 @@ export default defineComponent({
 
         let CreateNewList=function(){
             alert("Creating a new list");
+            //TODO:完成创建列表
         };
 
         let CreateNewListGroup=function(){
             alert("Creating a new list group");
+            //TODO:完成创建列表组
         };
 
         let DoSearch=function(){

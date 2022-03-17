@@ -11,6 +11,10 @@ export default defineComponent({
     name: "TodoSummarize",
     setup(){
 
+    },
+    mounted(){
+        console.log("TodoSummarize请求数据库");
+        //TODO:完成数据请求
     }
 });
 </script>

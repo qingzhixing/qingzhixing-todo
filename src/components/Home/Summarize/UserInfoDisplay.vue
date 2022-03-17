@@ -67,6 +67,7 @@ export default defineComponent({
 
         let ManageAccount=function(){
             alert("manage account");
+            //TODO:finish manage account
         };
 
         let JumpToSettingsPage=function(){
