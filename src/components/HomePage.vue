@@ -37,8 +37,6 @@ export default defineComponent({
 
     width: 100%;
     height: 100%;
-    min-width:800px;
-    max-width:1650px;
 
     //display
     display:grid;
@@ -50,7 +48,6 @@ export default defineComponent({
 
         min-width:300px;
         max-width:400px;
-        min-height: 500px;
 
         right:10px;
     }
@@ -63,7 +60,6 @@ export default defineComponent({
         margin:10px;
         left:10px;
         right:10px;
-        min-width: 400px;
     }
 }
 </style>

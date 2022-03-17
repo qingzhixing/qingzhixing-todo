@@ -2,7 +2,7 @@
     <div id="user-info-display">
 
         <div id="avatar">
-            <a-popover position="bl" trigger="click">
+            <a-popover position="bl" trigger="hover">
 
                 <a-avatar :style="{backgroundColor:'#14a9f8'}">
                     <IconUser/>
@@ -44,30 +44,35 @@
             </div>
 
         </div>
+
+        <manage-account/>
     </div>
 </template>
 
 <script lang="ts">
 
-import IUserInfo from '@/types/UserInfo';
+import UserInfo from '@/types/UserInfo';
+import ManageAccount from "@/components/Home/ManageAccount.vue";
 import {useRouter} from "vue-router";
 import {defineComponent, reactive, toRefs} from "vue";
+import mitt from "@/types/mitt";
 
 
 export default defineComponent({
     name: "UserInfoDisplay",
-
+    components:{
+        ManageAccount,
+    },
     setup(){
         const router=useRouter();
 
-        let userInfo=reactive<IUserInfo>({
+        let userInfo=reactive<UserInfo>({
             name:"Username",
             accountId:"123456ABC",
         });
 
         let ManageAccount=function(){
-            alert("manage account");
-            //TODO:finish manage account
+            mitt.emit("displayManageAccountWindow");
         };
 
         let JumpToSettingsPage=function(){
