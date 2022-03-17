@@ -7,19 +7,27 @@
 
 <script lang="ts">
 
-import {defineComponent} from "vue";
+import {defineComponent, ref, watch} from "vue";
+import {useRoute} from "vue-router";
 
 export default defineComponent({
     name: "TodoListContent",
     setup(){
-        let todoListIndex:any = 0;
+        const route=useRoute();
+
+        let todoListIndex = ref(route.query.index);
+
+        watch(
+            ()=>route.query.index,
+            (newIndex)=>{
+                todoListIndex.value=newIndex;
+            }
+        );
+
         return{
             todoListIndex,
         };
     },
-    mounted(){
-        this.todoListIndex=this.$route.query.index;
-    }
 });
 </script>
 

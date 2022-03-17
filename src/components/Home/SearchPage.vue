@@ -5,26 +5,24 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
+import {defineComponent, ref, watch} from "vue";
+import {useRoute} from "vue-router";
 
 export default defineComponent({
     name: "SearchPage",
     setup(){
-        let keyword:any ="";
+        const route=useRoute();
+
+        let keyword:any=ref(route.query.keyword);
+        watch(()=>route.query.keyword,
+            (newKeyword)=>{
+            keyword.value=newKeyword;
+        });
+
         return{
             keyword,
         }
     },
-    created() {
-        this.$watch(
-            ()=>this.$route.query,
-            (newQuery: { keyword: any; })=>{
-                this.keyword = newQuery.keyword;
-            }
-        );
-
-        this.keyword =this.$route.query.keyword;
-    }
 })
 </script>
 

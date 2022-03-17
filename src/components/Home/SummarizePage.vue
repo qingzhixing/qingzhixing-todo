@@ -18,7 +18,7 @@
         </div>
 
         <div id="todo-summarize">
-            Todo Summarize
+            <TodoSummarize/>
         </div>
 
         <div id="create">
@@ -48,16 +48,21 @@
 
 <script lang="ts">
 import UserInfoDisplay from "@/components/Home/Summarize/UserInfoDisplay.vue";
+import TodoSummarize from "@/components/Home/Summarize/TodoSummarize.vue"
 import {defineComponent, ref} from "vue";
+import {useRouter} from "vue-router";
 
 export default defineComponent({
     name: "SummarizePage",
 
     components:{
         UserInfoDisplay,
+        TodoSummarize,
     },
 
     setup(){
+        const router=useRouter();
+
         let keyword=ref<string>("");
 
         let CreateNewList=function(){
@@ -68,21 +73,20 @@ export default defineComponent({
             alert("Creating a new list group");
         };
 
+        let DoSearch=function(){
+           router.push({
+               path:"search",
+               query:{keyword:`${keyword.value}`}
+           });
+        };
+
         return{
             keyword,
             CreateNewList,
             CreateNewListGroup,
+            DoSearch
         };
     },
-    methods:{
-        DoSearch: function(){
-            // console.log(this.keyword);
-            this.$router.push({
-                path:"search",
-                query:{keyword:this.keyword}
-            });
-        },
-    }
 })
 </script>
 

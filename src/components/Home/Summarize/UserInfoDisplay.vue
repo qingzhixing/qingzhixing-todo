@@ -50,6 +50,7 @@
 <script lang="ts">
 
 import IUserInfo from '@/types/UserInfo';
+import {useRouter} from "vue-router";
 import {defineComponent, reactive, toRefs} from "vue";
 
 
@@ -57,6 +58,7 @@ export default defineComponent({
     name: "UserInfoDisplay",
 
     setup(){
+        const router=useRouter();
 
         let userInfo=reactive<IUserInfo>({
             name:"Username",
@@ -67,16 +69,16 @@ export default defineComponent({
             alert("manage account");
         };
 
+        let JumpToSettingsPage=function(){
+            router.push({path:'/settings'});
+        };
+
         return{
             ...toRefs(userInfo),
             ManageAccount,
+            JumpToSettingsPage,
         };
     },
-    methods:{
-        JumpToSettingsPage:function(){
-           this.$router.push({path:"/settings"});
-        },
-    }
 
 })
 </script>
