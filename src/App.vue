@@ -1,9 +1,5 @@
 <template>
-<!--  <div>App</div>-->
-<!--  <router-link to="/">HomePage</router-link>-->
-<!--  <router-link to="/settings">Settings</router-link>-->
   <div>
-    <router-view></router-view>
   </div>
 </template>
 
