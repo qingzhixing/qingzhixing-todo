@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="settings-page">
         SettingsPage
         <button @click="ChangeGlobalTheme('Dark')">Change Theme to Dark</button>
         <pre>
@@ -29,5 +29,8 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
+#settings-page{
+    width: 90vw;
+    height:90vh;
+}
 </style>
