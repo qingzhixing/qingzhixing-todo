@@ -14,14 +14,20 @@ export default defineComponent({
 });
 </script>
 <style lang="less">
-@minWindowHeight:400px;
+@import url("~@/style/global.less");
+
 html, body {
     height:100%;
     @media (min-height:@minWindowHeight) {
         overflow:hidden;
     }
+    padding:0;
+    margin:0;
 }
 #app{
+    padding:0;
+    margin:0;
+
     width: 100%;
     height: 100%;
     display:flex;
@@ -29,5 +35,7 @@ html, body {
     justify-content: center;
 
     min-height:@minWindowHeight;
+
+    background-color: #f0f0f0;
 }
 </style>

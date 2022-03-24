@@ -25,17 +25,15 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-@minWindowHeight:400px;
+@import url("~@/style/global.less");
 
 //折叠左侧时窗口最大大小
 @foldLeftWindowWidth:700px;
 
-.debug{
-    background-color: aqua;
-    border: 2px double black;
-}
 #home-page {
     .debug();
+    background-color:#3e3e3e;
+
     display: flex;
     flex-direction:row;
     width: 90vw;
@@ -44,9 +42,8 @@ export default defineComponent({
 
     #left{
         .debug();
-        flex:1fr;
         @media screen and (min-width: @foldLeftWindowWidth){
-            width:100%;
+            width:400px;
             max-width:@foldLeftWindowWidth;
         }
         @media screen and (max-width: @foldLeftWindowWidth){
@@ -55,16 +52,22 @@ export default defineComponent({
     }
     #space{
         @media screen and (min-width: @foldLeftWindowWidth){
-            width: 30px;
+            //width: 30px;
         }
         @media screen and (max-width: @foldLeftWindowWidth){
-            width:0;
+            display:none;
         }
     }
     #right{
         .debug();
-        flex:2fr;
+        flex:1fr;
         width:100%;
+
+        padding-top:10px;
+        padding-left:10px;
+        @media screen and (min-width: @foldLeftWindowWidth){
+            border-top-left-radius: 15px;
+        }
     }
 }
 </style>
