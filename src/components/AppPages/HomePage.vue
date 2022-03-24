@@ -36,9 +36,9 @@ export default defineComponent({
 
     display: flex;
     flex-direction:row;
-    width: 90vw;
+    width: @appPageWidth;
     min-height: @minWindowHeight;
-    height:90vh;
+    height:@appPageHeight;
 
     #left{
         .debug();
@@ -47,7 +47,7 @@ export default defineComponent({
             max-width:@foldLeftWindowWidth;
         }
         @media screen and (max-width: @foldLeftWindowWidth){
-            width:0;
+            display:none;
         }
     }
     #space{

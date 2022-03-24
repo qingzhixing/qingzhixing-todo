@@ -22,26 +22,33 @@ export default {
 #home-left-page{
     display:flex;
     flex-direction:column;
+
+    height:100%;
+
+    @userInfoDisplayHeight:60px;
     #user-info-display{
         background-color: antiquewhite;
         width:100%;
-        height:60px;
+        height:@userInfoDisplayHeight;
     }
 
+    @searchHeight:30px;
     #search{
         background-color: aquamarine;
         width: 100%;
-        height:30px;
+        height:@searchHeight;
     }
 
     #menu{
-
+        flex:1fr;
+        height:100%;
+        background-color: green;
     }
 
+    @createBarHeight:30px;
     #create-bar{
-        align-self: flex-end;
         width: 100%;
-        height:30px;
+        height:@createBarHeight;
         background-color: blue;
     }
 }

@@ -28,9 +28,10 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+@import url("~@/style/global.less");
 #settings-page{
-    width: 90vw;
-    height:90vh;
+    width: @appPageWidth;
+    height:@appPageHeight;
 }
 </style>
