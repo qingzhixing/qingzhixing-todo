@@ -13,16 +13,21 @@ export default defineComponent({
   }
 });
 </script>
-
-<style>
+<style lang="less">
+@minWindowHeight:400px;
 html, body {
-    overflow: hidden;
+    height:100%;
+    @media (min-height:@minWindowHeight) {
+        overflow:hidden;
+    }
 }
 #app{
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display:flex;
     align-items: center;
     justify-content: center;
+
+    min-height:@minWindowHeight;
 }
 </style>

@@ -25,6 +25,7 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
+@minWindowHeight:400px;
 
 //折叠左侧时窗口最大大小
 @foldLeftWindowWidth:700px;
@@ -38,6 +39,7 @@ export default defineComponent({
     display: flex;
     flex-direction:row;
     width: 90vw;
+    min-height: @minWindowHeight;
     height:90vh;
 
     #left{
