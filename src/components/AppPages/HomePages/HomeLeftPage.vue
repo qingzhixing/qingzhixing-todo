@@ -27,8 +27,9 @@
 
         <div id="search">
             <a-input-search v-if="!isSearching" v-model="searchInput" placeholder="Please enter something"
-                            @search="DoSearch()"/>
-            <a-input-search v-if="isSearching" v-model="searchInput" placeholder="Searching" loading/>
+                            @search="DoSearch()" @keydown.enter="DoSearch()" allow-clear/>
+            <a-input-search v-if="isSearching" v-model="searchInput" placeholder="Searching"
+                            @keydown.enter="DoSearch()" allow-clear loading/>
         </div>
 
         <div id="menu"></div>
@@ -52,13 +53,16 @@ export default defineComponent({
 
         let searchInput=ref<string>("");
         let isSearching=ref<boolean>(false);
+
+        let debugSearchTimeout=0;
         let DoSearch=function(){
+            clearTimeout(debugSearchTimeout);
             isSearching.value=true;
             console.log("Searching for "+searchInput.value);
-            setTimeout(()=>{
+            debugSearchTimeout = setTimeout(()=>{
                 isSearching.value=false;
             },3000);
-        }
+        };
 
         return {
             ...toRefs(userInfo),
@@ -119,7 +123,7 @@ export default defineComponent({
         }
     }
 
-    @searchHeight:40px;
+    @searchHeight:36px;
     #search{
         background-color: aquamarine;
         width: 100%;
