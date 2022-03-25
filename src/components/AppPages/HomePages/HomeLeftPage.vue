@@ -32,7 +32,11 @@
                             @keydown.enter="DoSearch()" allow-clear loading/>
         </div>
 
-        <div id="menu"></div>
+        <div id="menu">
+            <div id="default-list-group">
+
+            </div>
+        </div>
 
         <div id="create-bar"></div>
     </div>
@@ -41,15 +45,13 @@
 <script lang="ts">
 import {defineComponent, reactive, ref, toRefs} from "vue";
 import UserInfo from "@/types/UserInfo";
+import * as FakeData from "@/data/FakeData";
+import ListGroup from "@/types/ListGroup";
 
 export default defineComponent({
     name: "HomeLeftPage",
     setup(){
-        let userInfo=reactive<UserInfo>({
-            username:"Username",
-            account:"Account-ID",
-            avatarURI:"https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3ee5f13fb09879ecb5185e440cef6eb9.png~tplv-uwbnlip3yd-webp.webp",
-        });
+        let userInfo=reactive<UserInfo>(FakeData.userInfo);
 
         let searchInput=ref<string>("");
         let isSearching=ref<boolean>(false);
@@ -64,11 +66,15 @@ export default defineComponent({
             },3000);
         };
 
+        let defaultGroup=reactive<ListGroup>(FakeData.defaultListGroup);
+
         return {
             ...toRefs(userInfo),
             searchInput,
             isSearching,
             DoSearch,
+
+            defaultGroup,
         }
     }
 });
