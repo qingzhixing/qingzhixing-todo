@@ -1,9 +1,9 @@
 import UserInfo from "@/types/UserInfo";
 import TodoList from "@/types/TodoList";
 import ListGroup from "@/types/ListGroup";
-import Icon from "@/types/Icon";
 import BackgroundUri from "@/types/Background";
 import TodoTask from "@/types/TodoTask";
+import Icon from "@/types/Icon";
 
 const userInfo:UserInfo={
     username:"Username",
@@ -12,13 +12,13 @@ const userInfo:UserInfo={
 };
 
 const listImportant:TodoList=new TodoList({
-    icon:Icon.mosaic,
+    iconUri:Icon.testIcon,
     listName :"important",
     background:BackgroundUri.defaultBackground,
     taskArray : Array<TodoTask>()
 });
 const listWithinPlan:TodoList=new TodoList({
-    icon:Icon.fire,
+    iconUri:Icon.testIcon,
     listName :"within-plan",
     background:BackgroundUri.defaultBackground,
     taskArray : Array<TodoTask>()
@@ -26,7 +26,7 @@ const listWithinPlan:TodoList=new TodoList({
 
 const defaultListGroup:ListGroup=new ListGroup(
     Array<TodoList>(listImportant,listWithinPlan),
-    ""
+    "default"
 );
 
 export {userInfo,defaultListGroup};

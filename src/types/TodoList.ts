@@ -4,18 +4,18 @@ import BackgroundUri from "@/types/Background";
 
 
 class TodoList{
-    icon:Icon;
+    iconUri:string;
     listName:string;
     background:BackgroundUri;
     taskArray:Array<TodoTask>;
 
     constructor(listObject:{
-        icon:Icon;
+        iconUri:string;
         listName:string;
         background:BackgroundUri,
         taskArray : Array<TodoTask>,
     }){
-        this.icon=listObject.icon;
+        this.iconUri=listObject.iconUri;
         this.listName=listObject.listName;
         this.background=listObject.background;
         this.taskArray=listObject.taskArray;

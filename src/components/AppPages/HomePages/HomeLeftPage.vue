@@ -33,7 +33,18 @@
         </div>
 
         <div id="menu">
-            <div id="default-list-group">
+            <div id="default-list">
+                <a-button v-for="(defaultList,defaultGroupIndex) in defaultGroup.listArray"
+                          :key="defaultGroupIndex" :long="true" type="text" size="large">
+                    <template #icon>
+                        <icon-user/>
+<!--                        <img :src="defaultList.iconUri" alt="icon" style="height:20px;"/>-->
+                    </template>
+                    {{defaultList.listName}}
+                </a-button>
+            </div>
+            <a-divider/>
+            <div id="current-list">
 
             </div>
         </div>
@@ -76,6 +87,8 @@ export default defineComponent({
 
             defaultGroup,
         }
+    },
+    components:{
     }
 });
 </script>
@@ -140,6 +153,17 @@ export default defineComponent({
         flex:1fr;
         height:100%;
         background-color: green;
+
+        overflow-y: scroll;
+
+        #default-list{
+            background-color: coral;
+            width: 100%;
+        }
+
+        #current-list{
+            height:500px;
+        }
     }
 
     @createBarHeight:30px;
